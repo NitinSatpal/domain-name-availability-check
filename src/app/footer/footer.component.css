@@ -1,0 +1,13 @@
+.footer {
+    height: 55px;
+    line-height: 55px;
+    background: #ff9137;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: underline;
+    padding: 0 35px;
+    font-family: OpenSansRegular;
+    font-size: 14px;
+}

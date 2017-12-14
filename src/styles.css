@@ -1,0 +1,351 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@font-face {
+    font-family: OpenSansExtraBold;
+    src: url(./assets/font/OpenSans-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: OpenSansLight;
+    src: url(./assets/font/OpenSans-Light.ttf);
+}
+
+@font-face {
+    font-family: OpenSansBold;
+    src: url(./assets/font/OpenSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: OpenSansRegular;
+    src: url(./assets/font/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: OpenSansSemiBold;
+    src: url(./assets/font/OpenSans-SemiBold.ttf);
+}
+
+.title {
+    font-family: OpenSansExtraBold;
+    font-size: 70px;
+    line-height: 0.93;
+    text-align: center;
+    color: #fb3f0d;
+    margin: 170px 0 30px 0;
+}
+
+.title span {
+    color: #fd7d2b;
+}
+
+.sub_title {
+    font-family: OpenSansLight;
+    font-size: 22px;
+    line-height: 1.36;
+    text-align: center;
+    color: #828282;
+    margin: 0 0 45px 0;
+}
+
+.search_form {
+    width: 780px;
+    margin: 0 auto;
+}
+
+.search_form input {
+    height: 60px;
+    line-height: 60px;
+    font-family: OpenSansBold;
+    font-size: 16px;
+    width: 620px!important;
+    border-radius: 3px!important;
+    border: 2px solid #bebebe;
+}
+
+.search_form input::-webkit-input-placeholder {
+    color: #b4b4b4;
+}
+
+.search_form input::-moz-placeholder {
+    color: #b4b4b4;
+}
+
+.search_form input:-ms-input-placeholder {
+    color: #b4b4b4;
+}
+
+.search_form input:-moz-placeholder {
+    color: #b4b4b4;
+}
+
+.search_form button {
+    width: 140px;
+    height: 60px;
+    border-radius: 3px;
+    background-color: #ff520a;
+    color: #fff;
+    font-family: OpenSansBold;
+    font-size: 18px;
+}
+
+.search_form button:hover,
+.search_form button:focus {
+    color: #fff;
+    outline: none;
+}
+
+.search_form button img {
+    margin-right: 10px;
+}
+
+.header_setting {
+    width: 780px;
+    margin: 25px auto 0 auto;
+}
+
+.header_setting img {
+    margin: -5px 8px 0 0;
+}
+
+.divider {
+    text-decoration: underline;
+    color: #ff530a;
+    font-size: 16px;
+    font-family: OpenSansBold;
+    padding-right: 25px;
+    border-right: 1px solid #e6e6e6;
+}
+
+.divider:hover {
+    color: #ff530a;
+}
+
+.header_setting span {
+    padding-left: 25px;
+    font-size: 12px;
+    color: #b4b4b4;
+    font-family: OpenSansRegular;
+}
+
+.header_img {
+    text-align: center;
+    padding-top: 95px;
+}
+
+@media screen and (max-width: 800px) {
+    .search_form,
+    .header_setting {
+        width: 500px;
+    }
+    .search_form input {
+        width: 340px!important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer a {
+        padding: 0 15px!important;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .footer a {
+        padding: 0 5px!important;
+    }
+    .title {
+        font-size: 50px;
+    }
+    .search_form,
+    .header_setting {
+        width: 310px;
+    }
+    .search_form input {
+        width: 200px!important;
+    }
+    .search_form button {
+        width: 100px;
+        font-size: 14px;
+    }
+    .search_form button img {
+        width: 18px;
+    }
+    .header_setting img {
+        margin: 0;
+        width: 16px;
+    }
+    .header_setting a {
+        font-size: 12px;
+        padding-right: 3px;
+    }
+    .header_setting span {
+        padding-left: 3px;
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .footer a {
+        font-size: 10px!important;
+        padding: 0 2px!important;
+    }
+    .title {
+        font-size: 40px;
+    }
+    .header_img img {
+        width: 310px;
+    }
+}
+
+
+/*========================
+ start - setting modal dialog
+========================*/
+
+.custom-backdrop-class {
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+}
+
+.overay-pan-background {
+    max-width: 80vw!important;
+    position: absolute!important;
+    margin-top: -300px!important;
+    margin-left: -230px!important;
+    top: 50%!important;
+    left: 50%!important;
+    background-color: white;
+}
+
+@media screen and (max-width:750px) {
+    .overay-pan-background {
+        margin-left: -40vw!important;
+    }
+}
+
+.mat-dialog-container {
+    padding: 0 30px!important;
+    font-family: 'OpenSansSemiBold';
+}
+
+.mat-dialog-title {
+    font-size: 25px!important;
+    font-family: 'OpenSansSemiBold';
+    text-align: center;
+    line-height: 85px;
+    color: #3c3c3c;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    color: #969696;
+}
+
+.mat-dialog-content {
+    margin: 0 -30px!important;
+    padding: 0 30px!important;
+    background-color: #f5f5f5;
+    overflow: hidden!important;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    max-height: 100vh!important;
+}
+
+.mat-select {
+    padding-top: 30px;
+    display: block!important;
+}
+
+.mat-select-underline {
+    height: 0!important;
+}
+
+.mat-select-trigger {
+    height: 50px!important;
+    border-radius: 3px;
+    border: 2px solid #bebebe;
+    background-color: white;
+}
+
+.mat-select-value {
+    left: 15px!important;
+    font-size: 14px;
+    font-family: OpenSansBold;
+    color: #3c3c3c;
+}
+
+.mat-select-arrow {
+    margin-right: 18px!important;
+}
+
+.exts-check-section .mat-checkbox-layout {
+    padding-left: 20px;
+    width: 25%;
+    margin-top: 30px;
+    display: inline-block!important;
+}
+
+.mat-checkbox-layout span {
+    font-size: 13px;
+    font-family: 'OpenSansBold';
+    color: #3c3c3c;
+}
+
+.mat-checkbox-frame {
+    border-radius: 3px!important;
+    border-width: 1px!important;
+    border-color: #bebebe;
+}
+
+.mat-checkbox-checkmark {
+    width: 12px;
+    height: 12px;
+    top: 4px!important;
+}
+
+.mat-checkbox-checkmark-path {
+    stroke-width: 4px!important;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #ff9137!important;
+    border-radius: 3px!important;
+}
+
+.hypens {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#cdk-overlay-1 .mat-select-panel {
+    margin-top: 60px;
+    min-width: 100%!important;
+    margin-left: 16px;
+}
+
+#cdk-overlay-1 .mat-select-panel .mat-option {
+    font-size: 14px!important;
+    font-family: OpenSansBold;
+}
+
+#cdk-overlay-3 .mat-select-panel {
+    margin-top: 60px;
+    min-width: 100%!important;
+    margin-left: 16px;
+}
+
+#cdk-overlay-3 .mat-select-panel .mat-option {
+    font-size: 14px!important;
+    font-family: OpenSansBold;
+}

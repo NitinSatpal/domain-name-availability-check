@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>fee-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Domain-Author" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1---Home-page" transform="translate(-230.000000, -1075.000000)">
+            <g id="content" transform="translate(0.000000, 680.000000)">
+                <g id="fee-icon" transform="translate(230.000000, 395.000000)">
+                    <circle id="Oval-Copy-5" fill="#FF9137" cx="50" cy="50" r="50"></circle>
+                    <path d="M59.7265667,99.0545253 C80.6964259,94.9201339 96.9580605,77.6748467 99.617853,56.212281 C99.8700893,54.1769196 67.0600586,26.5830078 67.0600586,26.5830078 L28.5048828,70.230957 C28.5048828,70.230957 56.5803502,99.6748294 59.7265667,99.0545253 Z" id="Oval-Copy-8" fill="#F08C32"></path>
+                    <rect id="Rectangle-3" fill="#D7D7D7" x="44" y="61" width="26" height="7" rx="1"></rect>
+                    <rect id="Rectangle-3-Copy" fill="#F5F5F5" x="41" y="54" width="26" height="7" rx="1"></rect>
+                    <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" x="39" y="47" width="26" height="7" rx="1"></rect>
+                    <rect id="Rectangle-3-Copy-3" fill="#F5F5F5" x="42" y="40" width="26" height="7" rx="1"></rect>
+                    <rect id="Rectangle-3-Copy-4" fill="#D7D7D7" x="44" y="33" width="26" height="7" rx="1"></rect>
+                    <rect id="Rectangle-3-Copy-5" fill="#F5F5F5" x="41" y="26" width="26" height="7" rx="1"></rect>
+                    <circle id="Oval-7" fill="#B9B9B9" cx="40" cy="61" r="13"></circle>
+                    <circle id="Oval-7-Copy-2" fill="#FFFFFF" cx="37" cy="61" r="13"></circle>
+                    <path d="M37,70 C41.9705627,70 46,65.9705627 46,61 C46,56.0294373 41.9705627,52 37,52 C32.0294373,52 28,56.0294373 28,61 C28,65.9705627 32.0294373,70 37,70 Z M37,71 C31.4771525,71 27,66.5228475 27,61 C27,55.4771525 31.4771525,51 37,51 C42.5228475,51 47,55.4771525 47,61 C47,66.5228475 42.5228475,71 37,71 Z" id="Oval-7-Copy" fill="#B9B9B9" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

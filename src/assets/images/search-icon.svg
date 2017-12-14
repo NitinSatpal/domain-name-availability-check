@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>search-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Domain-Author" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1---Home-page" transform="translate(-870.000000, -358.000000)" fill-rule="nonzero" fill="#FFFFFF">
+            <g id="top">
+                <g id="search-btn" transform="translate(850.000000, 340.000000)">
+                    <path d="M23.3766696,36.5020101 L23.3766696,36.5020101 C21.8861441,34.5628185 21,32.1348943 21,29.5 C21,23.1487254 26.1487254,18 32.5,18 C38.8512746,18 44,23.1487254 44,29.5 C44,35.8512746 38.8512746,41 32.5,41 C29.8651057,41 27.4371815,40.1138559 25.4979899,38.6233304 L22.5606602,41.5606602 C21.9748737,42.1464466 21.0251263,42.1464466 20.4393398,41.5606602 C19.8535534,40.9748737 19.8535534,40.0251263 20.4393398,39.4393398 L23.3766696,36.5020101 Z M32.5,38 C37.1944204,38 41,34.1944204 41,29.5 C41,24.8055796 37.1944204,21 32.5,21 C27.8055796,21 24,24.8055796 24,29.5 C24,34.1944204 27.8055796,38 32.5,38 Z" id="search-icon"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

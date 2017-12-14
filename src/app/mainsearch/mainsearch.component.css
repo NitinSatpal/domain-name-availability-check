@@ -1,0 +1,12 @@
+.setting_modal:hover,
+.setting_modal:focus {
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 0px 0px 4px rgba(255, 0, 0, 1);
+}
+
+.setting_modal {
+    padding-left: 0;
+}
+.spinner.hideSpinner { visibility: hidden !important; }
+.spinner.showSpinner { visibility: block !important; }

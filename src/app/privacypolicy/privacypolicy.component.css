@@ -1,0 +1,18 @@
+.footer-page-title {
+	font-family: OpenSansExtraBold;
+    font-size: 30px;
+    line-height: 0.93;
+    text-align: center;
+    color: #fb3f0d;
+    margin: 20px 0 30px 0;
+    cursor: pointer;
+}
+.privacy-policy p {
+	font-size: 16px;
+}
+.privacy-policy b {
+	font-size: 18px;
+}
+.privacy-policy .main-heading {
+	font-weight: bold;
+}

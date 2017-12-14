@@ -1,0 +1,471 @@
+<app-searchsection></app-searchsection>
+<div class="content_section">
+    <div class="search_result_container row">
+        <div class="category_row row">
+            <div class="col-sm-6 col-md-4 col-xs-12">
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group" *ngIf="!websiteData.noWebsiteDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Website</a>
+                        </a>
+                        <div id="collapseOne" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <a *ngFor="let ext of websiteData.websiteResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
+                                        {{ext.domain}}
+                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    </div>
+                                </a>
+                                <!--More result-->
+                                <div *ngIf="websiteData.websiteResult.length>10" class="more_results text-center">
+                                    <a routerLink="/more" (click)="websiteData.showMoreResultsFor = 'website'">MORE RESULTS <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                                <!--More result-->
+                            </div>
+                            <!--10 Accordion inner end-->
+                        </div>
+                    </div>
+                    <div class="accordion-group" *ngIf="websiteData.noWebsiteDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Website</a>
+                        </a>
+                        <div id="collapseOne" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <div class="no_result text-center">
+                                    <p class="no_result_txt">No results</p>
+                                    <p class="no_result_help"> Please try a new keyword or change the <a (click)="openSettingDialog()">Settings</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-12">
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group" *ngIf="!websiteData.noBusinessDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">Business</a>
+                        </a>
+                        <div id="collapseTwo" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <a *ngFor="let ext of websiteData.businessResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
+                                        {{ext.domain}}
+                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    </div>
+                                </a>
+                                <!--More result-->
+                                <div *ngIf="websiteData.businessResult.length>10" class="more_results text-center">
+                                    <a routerLink="/more" (click)="websiteData.showMoreResultsFor = 'business'">MORE RESULTS <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                                <!--More result-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group" *ngIf="websiteData.noBusinessDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">Business</a>
+                        </a>
+                        <div id="collapseTwo" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <div class="no_result text-center">
+                                    <p class="no_result_txt">No results</p>
+                                    <p class="no_result_help"> Please try a new keyword or change the <a (click)="openSettingDialog()">Settings</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-12">
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group" *ngIf="!websiteData.noShopDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Shops</a>
+                        </a>
+                        <div id="collapseThree" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <a *ngFor="let ext of websiteData.shopResult;let i=index" href="#" (click)="redirecToProvider($event,ext.domain)" class="domain-item">
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
+                                        {{ext.domain}}
+                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    </div>
+                                </a>
+                                <!--More result-->
+                                <div *ngIf="websiteData.shopResult.length>10" class="more_results text-center">
+                                    <a routerLink="/more" (click)="websiteData.showMoreResultsFor = 'shops'">MORE RESULTS <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                                <!--More result-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group" *ngIf="websiteData.noShopDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Shops</a>
+                        </a>
+                        <div id="collapseThree" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <div class="no_result text-center">
+                                    <p class="no_result_txt">No results</p>
+                                    <p class="no_result_help"> Please try a new keyword or change the <a (click)="openSettingDialog()">Settings</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category_row row">
+            <div class="col-sm-6 col-md-4 col-xs-12">
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group" *ngIf="!websiteData.noSoftwareDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">Software</a>
+                        </a>
+                        <div id="collapseFour" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <a *ngFor="let ext of websiteData.softwareResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
+                                        {{ext.domain}}
+                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    </div>
+                                </a>
+                                <!--More result-->
+                                <div *ngIf="websiteData.softwareResult.length>10" class="more_results text-center">
+                                    <a routerLink="/more" (click)="websiteData.showMoreResultsFor = 'software'">MORE RESULTS <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                                <!--More result-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group" *ngIf="websiteData.noSoftwareDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">Software</a>
+                        </a>
+                        <div id="collapseFour" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <div class="no_result text-center">
+                                    <p class="no_result_txt">No results</p>
+                                    <p class="no_result_help"> Please try a new keyword or change the <a (click)="openSettingDialog()">Settings</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-6 col-md-4 col-xs-12">
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group" *ngIf="!websiteData.noAppDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">App</a>
+                        </a>
+                        <div id="collapseFive" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <a *ngFor="let ext of websiteData.appResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
+                                        {{ext.domain}}
+                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    </div>
+                                </a>
+                                <!--More result-->
+                                <div *ngIf="websiteData.appResult.length>10" class="more_results text-center">
+                                    <a routerLink="/more" (click)="websiteData.showMoreResultsFor = 'app'">MORE RESULTS <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                                <!--More result-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group" *ngIf="websiteData.noAppDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">App</a>
+                        </a>
+                        <div id="collapseFive" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <div class="no_result text-center">
+                                    <p class="no_result_txt">No results</p>
+                                    <p class="no_result_help"> Please try a new keyword or change the <a (click)="openSettingDialog()">Settings</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-12">
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group" *ngIf="!websiteData.noEBookDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">eBook</a>
+                        </a>
+                        <div id="collapseSix" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <a *ngFor="let ext of websiteData.eBookResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
+                                        {{ext.domain}}
+                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    </div>
+                                </a>
+                                <!--More result-->
+                                <div *ngIf="websiteData.eBookResult.length>10" class="more_results text-center">
+                                    <a routerLink="/more" (click)="websiteData.showMoreResultsFor = 'eBook'">MORE RESULTS <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                                <!--More result-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group" *ngIf="websiteData.noEBookDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">eBook</a>
+                        </a>
+                        <div id="collapseSix" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <div class="no_result text-center">
+                                    <p class="no_result_txt">No results</p>
+                                    <p class="no_result_help"> Please try a new keyword or change the <a (click)="openSettingDialog()">Settings</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category_row row">
+            <div class="col-sm-6 col-md-4 col-xs-12">
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group" *ngIf="!websiteData.noAffiliateDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">Affiliate</a>
+                        </a>
+                        <div id="collapseSeven" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <a *ngFor="let ext of websiteData.affiliateResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
+                                        {{ext.domain}}
+                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    </div>
+                                </a>
+                                <!--More result-->
+                                <div *ngIf="websiteData.affiliateResult.length>10" class="more_results text-center">
+                                    <a routerLink="/more" (click)="websiteData.showMoreResultsFor = 'affiliate'">MORE RESULTS <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                                <!--More result-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group" *ngIf="websiteData.noAffiliateDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">Affiliate</a>
+                        </a>
+                        <div id="collapseSeven" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <div class="no_result text-center">
+                                    <p class="no_result_txt">No results</p>
+                                    <p class="no_result_help"> Please try a new keyword or change the <a (click)="openSettingDialog()">Settings</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-12">
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group" *ngIf="!websiteData.noCommunityDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseEight">
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseEight">Community</a>
+                        </a>
+                        <div id="collapseEight" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <a *ngFor="let ext of websiteData.communityResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
+                                        {{ext.domain}}
+                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    </div>
+                                </a>
+                                <!--More result-->
+                                <div *ngIf="websiteData.communityResult.length>10" class="more_results text-center">
+                                    <a routerLink="/more" (click)="websiteData.showMoreResultsFor = 'community'">MORE RESULTS <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                                <!--More result-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group" *ngIf="websiteData.noCommunityDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseEight">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseEight">Community</a>
+                        </a>
+                        <div id="collapseEight" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <div class="no_result text-center">
+                                    <p class="no_result_txt">No results</p>
+                                    <p class="no_result_help"> Please try a new keyword or change the <a (click)="openSettingDialog()">Settings</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-12">
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group" *ngIf="!websiteData.noTrainingDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseNine">
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseNine">Training</a>
+                        </a>
+                        <div id="collapseNine" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <a *ngFor="let ext of websiteData.trainingResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
+                                        {{ext.domain}}
+                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    </div>
+                                </a>
+                                <!--More result-->
+                                <div *ngIf="websiteData.trainingResult.length>10" class="more_results text-center">
+                                    <a routerLink="/more" (click)="websiteData.showMoreResultsFor = 'training'">MORE RESULTS <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                                <!--More result-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group" *ngIf="websiteData.noTrainingDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseNine">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseNine">Training</a>
+                        </a>
+                        <div id="collapseNine" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <div class="no_result text-center">
+                                    <p class="no_result_txt">No results</p>
+                                    <p class="no_result_help"> Please try a new keyword or change the <a (click)="openSettingDialog()">Settings</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category_row row">
+            <div class="col-sm-6 col-md-4 col-xs-12">
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group" *ngIf="!websiteData.noNewsDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseTen">
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseTen">News</a>
+                        </a>
+                        <div id="collapseTen" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <a *ngFor="let ext of websiteData.newsResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
+                                        {{ext.domain}}
+                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    </div>
+                                </a>
+                                <!--More result-->
+                                <div *ngIf="websiteData.newsResult.length>10" class="more_results text-center">
+                                    <a routerLink="/more" (click)="websiteData.showMoreResultsFor = 'news'">MORE RESULTS <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                                <!--More result-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group" *ngIf="websiteData.noNewsDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseTen">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseTen">News</a>
+                        </a>
+                        <div id="collapseTen" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <div class="no_result text-center">
+                                    <p class="no_result_txt">No results</p>
+                                    <p class="no_result_help"> Please try a new keyword or change the <a (click)="openSettingDialog()">Settings</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-12">
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group" *ngIf="!websiteData.noMarketPlaceDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseEleven">
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseEleven">Marketplace</a>
+                        </a>
+                        <div id="collapseEleven" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <a *ngFor="let ext of websiteData.marketPlaceResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
+                                        {{ext.domain}}
+                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    </div>
+                                </a>
+                                <!--More result-->
+                                <div *ngIf="websiteData.marketPlaceResult.length>10" class="more_results text-center">
+                                    <a routerLink="/more" (click)="websiteData.showMoreResultsFor = 'marketplace'">MORE RESULTS <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                                <!--More result-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group" *ngIf="websiteData.noMarketPlaceDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseEleven">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseEleven">Marketplace</a>
+                        </a>
+                        <div id="collapseEleven" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <div class="no_result text-center">
+                                    <p class="no_result_txt">No results</p>
+                                    <p class="no_result_help"> Please try a new keyword or change the <a (click)="openSettingDialog()">Settings</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-12">
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group" *ngIf="!websiteData.noVideoDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwelve">
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwelve">Video</a>
+                        </a>
+                        <div id="collapseTwelve" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <a *ngFor="let ext of websiteData.videoResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
+                                        {{ext.domain}}
+                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    </div>
+                                </a>
+                                <!--More result-->
+                                <div *ngIf="websiteData.videoResult.length>10" class="more_results text-center">
+                                    <a routerLink="/more" (click)="websiteData.showMoreResultsFor = 'video'">MORE RESULTS <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                                <!--More result-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group" *ngIf="websiteData.noVideoDataPresent">
+                        <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwelve">
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwelve">Video</a>
+                        </a>
+                        <div id="collapseTwelve" [ngClass]="collapseClass">
+                            <div class="accordion-inner">
+                                <div class="no_result text-center">
+                                    <p class="no_result_txt">No results</p>
+                                    <p class="no_result_help"> Please try a new keyword or change the <a (click)="openSettingDialog()">Settings</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

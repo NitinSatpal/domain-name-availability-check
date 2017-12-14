@@ -1,0 +1,38 @@
+<div class="header container">
+	<h1 routerLink="/" class="footer-page-title search_title">Domain<span>Author</span></h1>
+</div>
+<div class="container contact-us">
+	<h2 class="main-heading">Contact Us</h2>
+	<p>Please submit your improvement suggestions or business inquiries below:</p>
+	
+	<form class="form-horizontal" (ngSubmit)="onSubmit()" ngNativeValidate>
+		<div class="row">
+			<div class="panel">
+				<div class="col-md-8">
+					<div class="form-group">
+						<label for="name" class="control-label">Name</label>
+						<input type="text" class="form-control" name="name" id="name" placeholder="" [(ngModel)]="nameOFTheSubmitter"/>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="form-group">
+						<label for="name" class="control-label">Email address</label>
+						<input type="email" class="form-control" name="email" id="email" placeholder="" required [(ngModel)]="mailOFTheSubmitter"/>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="form-group">
+						<label for="name" class="control-label">Your message</label>
+						<textarea class="form-control" name="message" id="message" placeholder="" required="" [(ngModel)]="msgBySubmitter"></textarea>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="form-group" show-errors>
+						<button class="btn btn-primary sendButton">Send</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<p>You can also reach us on Facebook: <a href="https://www.facebook.com/DomainAuthor/" target="_blank">https://www.facebook.com/DomainAuthor/</a></p>
+</div>

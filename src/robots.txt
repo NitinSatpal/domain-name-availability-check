@@ -1,0 +1,4 @@
+User-agent: *
+disallow: /terms_of_use
+disallow: /privacy_policy
+disallow: /affiliate

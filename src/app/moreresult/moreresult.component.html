@@ -1,0 +1,24 @@
+<app-searchsection></app-searchsection>
+<div class="content_section">
+    <div class="links">
+        <a (click)="previous()" style="text-transform: capitalize;"><i *ngIf="currentIndex > 0" class="fa fa-chevron-left"></i> {{keywords[currentIndex-1]}}</a>
+        <a (click)="next()" class="pull-right" style="text-transform: capitalize;">{{keywords[currentIndex+1]}} <i *ngIf="currentIndex < keywords.length-1" class="fa fa-chevron-right"></i></a>
+    </div>
+    <div class="more_results" style="margin-bottom: 20px;">
+        <h1 style="text-transform: capitalize;">{{keywords[currentIndex]}}</h1>
+        <div *ngIf="websiteData.keyword!=''">
+            <a *ngFor="let ext of domainResult;let i=index" href="" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
+                <div [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
+                    {{ext.domain}}
+                    <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                    <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                </div>
+            </a>
+        </div>
+        <div class="text-center" style="margin-top: 25px;">
+            <button class="btn btn-primary text-center" (click)="loadMore()" style="font-size: 15px; color: #ff530a; background-color: transparent; border-color: #ff530a" *ngIf="!moreResultsOver"> Load More </button>
+            <span style="color: black; font-weight: bold; display: inline-block;" *ngIf="moreResultsOver" (click)="stopReload($event)">No more results available.</span>&nbsp;&nbsp;
+            <button class="btn btn-primary text-center" (click)="goToTopOfThePage()" style="font-size: 15px; color: #ff530a; background-color: transparent; border-color: #ff530a; display: inline-block;" *ngIf="moreResultsOver"> Go to Top </button>
+        </div>
+    </div>
+</div>
