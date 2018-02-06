@@ -11,10 +11,14 @@
                         <div id="collapseOne" [ngClass]="collapseClass">
                             <div class="accordion-inner">
                                 <a *ngFor="let ext of websiteData.websiteResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
-                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
-                                        {{ext.domain}}
-                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
-                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}" class="row responsiveActiveItem">
+                                        <div class="col-xs-8">
+                                            <span class="overflowText">{{ext.domain}}</span>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                            <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                        </div>
                                     </div>
                                 </a>
                                 <!--More result-->
@@ -50,10 +54,14 @@
                         <div id="collapseTwo" [ngClass]="collapseClass">
                             <div class="accordion-inner">
                                 <a *ngFor="let ext of websiteData.businessResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
-                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
-                                        {{ext.domain}}
-                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
-                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}" class="row responsiveActiveItem">
+                                        <div class="col-xs-8">
+                                            <span class="overflowText">{{ext.domain}}</span>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                            <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                        </div>
                                     </div>
                                 </a>
                                 <!--More result-->
@@ -83,15 +91,19 @@
                 <div class="accordion" id="accordion2">
                     <div class="accordion-group" *ngIf="!websiteData.noShopDataPresent">
                         <a class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Shops</a>
+                            <a [ngClass]="accordionClass" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Shop</a>
                         </a>
                         <div id="collapseThree" [ngClass]="collapseClass">
                             <div class="accordion-inner">
                                 <a *ngFor="let ext of websiteData.shopResult;let i=index" href="#" (click)="redirecToProvider($event,ext.domain)" class="domain-item">
-                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
-                                        {{ext.domain}}
-                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
-                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}" class="row responsiveActiveItem">
+                                        <div class="col-xs-8">
+                                            <span class="overflowText">{{ext.domain}}</span>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                            <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                        </div>
                                     </div>
                                 </a>
                                 <!--More result-->
@@ -128,10 +140,14 @@
                         <div id="collapseFour" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <a *ngFor="let ext of websiteData.softwareResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
-                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
-                                        {{ext.domain}}
-                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
-                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}" class="row responsiveActiveItem">
+                                        <div class="col-xs-8">
+                                            <span class="overflowText">{{ext.domain}}</span>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                            <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                        </div>
                                     </div>
                                 </a>
                                 <!--More result-->
@@ -167,10 +183,14 @@
                         <div id="collapseFive" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <a *ngFor="let ext of websiteData.appResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
-                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
-                                        {{ext.domain}}
-                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
-                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}" class="row responsiveActiveItem">
+                                        <div class="col-xs-8">
+                                            <span class="overflowText">{{ext.domain}}</span>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                            <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                        </div>
                                     </div>
                                 </a>
                                 <!--More result-->
@@ -205,10 +225,14 @@
                         <div id="collapseSix" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <a *ngFor="let ext of websiteData.eBookResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
-                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
-                                        {{ext.domain}}
-                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
-                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}" class="row responsiveActiveItem">
+                                        <div class="col-xs-8">
+                                            <span class="overflowText">{{ext.domain}}</span>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                            <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                        </div>
                                     </div>
                                 </a>
                                 <!--More result-->
@@ -245,10 +269,14 @@
                         <div id="collapseSeven" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <a *ngFor="let ext of websiteData.affiliateResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
-                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
-                                        {{ext.domain}}
-                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
-                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}" class="row responsiveActiveItem">
+                                        <div class="col-xs-8">
+                                            <span class="overflowText">{{ext.domain}}</span>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                            <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                        </div>
                                     </div>
                                 </a>
                                 <!--More result-->
@@ -283,10 +311,14 @@
                         <div id="collapseEight" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <a *ngFor="let ext of websiteData.communityResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
-                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
-                                        {{ext.domain}}
-                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
-                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}" class="row responsiveActiveItem">
+                                        <div class="col-xs-8">
+                                            <span class="overflowText">{{ext.domain}}</span>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                            <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                        </div>
                                     </div>
                                 </a>
                                 <!--More result-->
@@ -321,10 +353,14 @@
                         <div id="collapseNine" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <a *ngFor="let ext of websiteData.trainingResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
-                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
-                                        {{ext.domain}}
-                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
-                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}" class="row responsiveActiveItem">
+                                        <div class="col-xs-8">
+                                            <span class="overflowText">{{ext.domain}}</span>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                            <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                        </div>
                                     </div>
                                 </a>
                                 <!--More result-->
@@ -361,10 +397,14 @@
                         <div id="collapseTen" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <a *ngFor="let ext of websiteData.newsResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
-                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
-                                        {{ext.domain}}
-                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
-                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}" class="row responsiveActiveItem">
+                                        <div class="col-xs-8">
+                                            <span class="overflowText">{{ext.domain}}</span>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                            <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                        </div>
                                     </div>
                                 </a>
                                 <!--More result-->
@@ -399,10 +439,14 @@
                         <div id="collapseEleven" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <a *ngFor="let ext of websiteData.marketPlaceResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
-                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
-                                        {{ext.domain}}
-                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
-                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}" class="row responsiveActiveItem">
+                                        <div class="col-xs-8">
+                                            <span class="overflowText">{{ext.domain}}</span>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                            <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                        </div>
                                     </div>
                                 </a>
                                 <!--More result-->
@@ -437,10 +481,14 @@
                         <div id="collapseTwelve" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <a *ngFor="let ext of websiteData.videoResult;let i=index" href="#" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
-                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
-                                        {{ext.domain}}
-                                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
-                                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                    <div *ngIf="i<10" [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}" class="row responsiveActiveItem">
+                                        <div class="col-xs-8">
+                                            <span class="overflowText">{{ext.domain}}</span>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                                            <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                                        </div>
                                     </div>
                                 </a>
                                 <!--More result-->

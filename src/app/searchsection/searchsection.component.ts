@@ -16,6 +16,10 @@ export class SearchsectionComponent implements OnInit {
     keyword = "";
     hideSpinner = true;
     showSpinner = false;
+    letterNumber = /^[0-9a-zA-Z]+$/;
+    showNullError = false;
+    showMaxLimitError = false;
+    showletterNumberError = false;
     ngOnInit() {
       this.keyword = this._websiteService.keyword;
     }
@@ -31,6 +35,21 @@ export class SearchsectionComponent implements OnInit {
       });
     }
     search(){
+      this.showNullError = false;
+      this.showMaxLimitError = false;
+      this.showletterNumberError = false;
+      if (this.keyword == null || this.keyword == "" || !this.keyword) {
+        this.showNullError = true;
+        return;
+      }
+      if (this.keyword.length > 45) {
+        this.showMaxLimitError = true;
+        return;
+      }
+      if(!this.keyword.match(this.letterNumber)) {
+        this.showletterNumberError = true;
+        return true;  
+      }  
       this.hideSpinner = false;
       this.showSpinner = true;
       this._websiteService.getWebsiteDomainAvailabiliy(this.keyword)
@@ -143,6 +162,11 @@ export class SearchsectionComponent implements OnInit {
           },
           error => console.log(error),
         );
+    }
+
+    stopReload(event) {
+      event.preventDefault();
+      event.stopPropagation(); 
     }
 
 }

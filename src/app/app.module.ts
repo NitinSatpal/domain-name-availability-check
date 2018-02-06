@@ -21,7 +21,6 @@ import { TermsofuseComponent } from './termsofuse/termsofuse.component';
 import { AffiliateComponent } from './affiliate/affiliate.component';
 import { ContactusComponent } from './contactus/contactus.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

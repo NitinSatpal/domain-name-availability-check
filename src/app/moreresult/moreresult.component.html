@@ -8,10 +8,14 @@
         <h1 style="text-transform: capitalize;">{{keywords[currentIndex]}}</h1>
         <div *ngIf="websiteData.keyword!=''">
             <a *ngFor="let ext of domainResult;let i=index" href="" class="domain-item" (click)="redirecToProvider($event,ext.domain)">
-                <div [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}">
-                    {{ext.domain}}
-                    <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
-                    <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                <div [ngClass]="{'active_item':ext.available,'inactive_item':!ext.available}" class="row responsiveActiveItem">
+                    <div class="col-xs-8">
+                        <span class="overflowText">{{ext.domain}}</span>
+                    </div>
+                    <div class="col-xs-4">
+                        <a *ngIf="ext.available" href="#" class="pull-right" (click)="redirecToProvider($event,ext.domain)">BUY NOW</a>
+                        <a *ngIf="!ext.available" href="#" class="pull-right" (click)="checkAgain($event)">CHECK AGAIN</a>
+                    </div>
                 </div>
             </a>
         </div>

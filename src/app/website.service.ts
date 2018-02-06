@@ -18,7 +18,7 @@ export class WebsiteService {
   ];
   paramMoreExtensions = [];
   paramHypens: string = 'no';
-  paramDomainProvider: string = "GoDaddy (recommended)";
+  paramDomainProvider: string = JSON.stringify("GoDaddy");
   smartExtensions: string = 'yes';
   websiteResult = [];
   remainingWebsiteResult = [];

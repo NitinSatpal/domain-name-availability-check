@@ -9,27 +9,42 @@
 
 <div class="header">
     <h1 routerLink="/" class="title search_title">Domain<span>Author</span></h1>
-    <div class="input-group search_form"  style="width: 830px;">
+    <div class="input-group search_form">
         <div class="form-group  has-feedback">
-            <input type="text" class="form-control" id="inputSuccess5" [(ngModel)]="keyword" placeholder="Enter a topic or keyword">
+            <input type="text" class="form-control responsive-search-box" id="inputSuccess5" [(ngModel)]="keyword" placeholder="Enter a topic or keyword">
         </div>
-        <span class="input-group-btn">
+        <span class="input-group-btn responsive-search-btn">
             <button (click)="search()" class="btn" type="button"><img src="./assets/images/search-icon.svg" alt="">Search</button>
         </span>
-        <span class="input-group-btn spinner" [ngClass]="{hideSpinner: hideSpinner, showSpinner: showSpinner}">
+        <span class="input-group-btn spinner responsive-search-spinner" [ngClass]="{hideSpinner: hideSpinner, showSpinner: showSpinner}">
             <img src="./assets/images/Spinner.gif" alt="" style="height:50px;">
         </span>
     </div>
+    <div *ngIf="showNullError" class="error-message">
+        <p style="color:#d9534f">At least one character long keyword is required</p>
+    </div>
+    <div *ngIf="showMaxLimitError" class="error-message">
+        <p style="color:#d9534f">At most 45 characters long keyword is allowed </p>
+    </div>
+    <div *ngIf="showletterNumberError" class="error-message">
+        <p style="color:#d9534f">Only english alphanumeric keyword is allowed</p>
+    </div>
     <div class="header_setting search_setting">
-        <span class="setting_modal"><a (click)="openSettingDialog()"><img src="./assets/images/settings-icon.svg" alt=""></a>
-            <a (click)="openSettingDialog()" class="divider">Settings</a></span>
+        <span class="setting_modal">
+            <a (click)="openSettingDialog()">
+                <img src="./assets/images/settings-icon.svg" alt="">
+            </a>
+            <a (click)="openSettingDialog()" class="divider">Settings</a>
+        </span>
         <span>Please do not infringe any trademarks with this tool</span>
     </div>
     <div class="social_link">
-        <div class="fb-like" data-href="https://www.facebook.com/DomainAuthor/" data-width="80" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="false">
-            <a href="" class="fb-xfbml-parse-ignore like_link" target="_blank"><i class="fa fa-facebook"></i>Like</a>
+        <a href="" class="like_link" href="https://www.facebook.com/DomainAuthor/" target="_blank"><i class="fa fa-facebook"></i>Like</a>
+        <div class="fb-share-button" data-href="https://domainauthor.com" data-layout="button" data-size="small" data-mobile-iframe="true">
+            <a class="fb-xfbml-parse-ignore like_link" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdomainauthor.com%2F&amp;src=sdkpreparse">
+                <i class="fa fa-facebook"></i>Share
+            </a>
         </div>
-        <div class="fb-share-button" data-href="https://domainauthor.com" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore like_link" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdomainauthor.com%2F&amp;src=sdkpreparse"><i class="fa fa-facebook"></i>Share</a></div>
         <a href="" class="tweet_link" href="https://twitter.com/intent/tweet?text=https://domainauthor.com" target="_blank"><i class="fa fa-twitter"></i>Tweet</a>
     </div>
 </div>

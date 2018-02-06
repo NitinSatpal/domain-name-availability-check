@@ -1,20 +1,36 @@
-<div class="header">
+<div class="header" style="width: 100% !important;">
     <h1 class="title">Domain<span>Author</span></h1>
     <h3 class="sub_title">Find the best domain for your next project</h3>
-    <div class="input-group search_form" style="width: 830px;">
-        <div class="form-group  has-feedback">
-            <input (keyup.enter)="search()" type="text" class="form-control" [(ngModel)]="keyword" id="inputSuccess5" placeholder="Enter a topic or keyword">
+    <div class="input-group search_form">
+        <div class="form-group has-feedback">
+            <input (keyup.enter)="search()" type="text" class="form-control responsive-search-box" [(ngModel)]="keyword" id="inputSuccess5" placeholder="Enter a topic or keyword">
         </div>
-        <span class="input-group-btn">
-            <button (click)="search()" class="btn" type="button"><img src="./assets/images/search-icon.svg" alt="">Search</button>
+        <span class="input-group-btn responsive-search-btn">
+            <button (click)="search()" class="btn" type="button">
+                <img src="./assets/images/search-icon.svg" alt=""><span style="font-weight:bold; font-size:20px;">Search</span>
+            </button>
         </span>
-        <span class="input-group-btn spinner" [ngClass]="{hideSpinner: hideSpinner, showSpinner: showSpinner}">
+        <span class="input-group-btn spinner responsive-search-spinner" [ngClass]="{hideSpinner: hideSpinner, showSpinner: showSpinner}">
             <img src="./assets/images/Spinner.gif" alt="" style="height:50px;">
         </span>
+        <br>
+    </div>
+    <div *ngIf="showNullError" class="error-message">
+        <p style="color:#d9534f">At least one character long keyword is required</p>
+    </div>
+    <div *ngIf="showMaxLimitError" class="error-message">
+        <p style="color:#d9534f">At most 45 characters long keyword is allowed </p>
+    </div>
+    <div *ngIf="showletterNumberError" class="error-message">
+        <p style="color:#d9534f">Only english alphanumeric keyword is allowed</p>
     </div>
     <div class="header_setting">
-        <span class="setting_modal"><a (click)="openSettingDialog()"><img src="./assets/images/settings-icon.svg" alt=""></a>
-            <a (click)="openSettingDialog()" class="divider">Settings</a></span>
+        <span class="setting_modal">
+            <a (click)="openSettingDialog()">
+                <img src="./assets/images/settings-icon.svg" alt="">
+            </a>
+            <a (click)="openSettingDialog()" class="divider">Settings</a>
+        </span>
 
         <span>Please do not infringe any trademarks with this tool</span>
     </div>

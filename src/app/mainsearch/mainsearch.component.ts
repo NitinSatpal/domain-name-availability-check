@@ -17,6 +17,10 @@ export class MainsearchComponent implements OnInit {
   keyword = "";
   hideSpinner = true;
   showSpinner = false;
+  showNullError = false;
+  showMaxLimitError = false;
+  showletterNumberError = false;
+  letterNumber = /^[0-9a-zA-Z]+$/;
   ngOnInit() {
   }
   openSettingDialog() {
@@ -29,6 +33,22 @@ export class MainsearchComponent implements OnInit {
     });
   }
   search(){
+    this.showNullError = false;
+    this.showMaxLimitError = false;
+    this.showletterNumberError = false;
+    if (this.keyword == null || this.keyword == "" || !this.keyword) {
+      this.showNullError = true;
+      return;
+    }
+    if (this.keyword.length > 45) {
+      this.showMaxLimitError = true;
+      return;
+    }
+    if(!this.keyword.match(this.letterNumber)) {
+      this.showletterNumberError = true;
+      return true;  
+    }  
+
     this.hideSpinner = false;
     this.showSpinner = true;
     this._websiteService.getWebsiteDomainAvailabiliy(this.keyword)

@@ -21,3 +21,5 @@
 	background-color: #fb3f0d !important;
 	border-color: #fb3f0d !important;
 }
+.spinner.hideSpinner { visibility: hidden !important; }
+.spinner.showSpinner { visibility: block !important; }

@@ -8,13 +8,14 @@ const moreExtension = require('../models/moreExtension');
 const SmartExtension = require('../models/smartExtension.js');
 const nodemailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
-const mailgun = {
+/*const mailgun = {
 	auth: {
 	  	api_key: 'key-95dd77e3897a2e0363065651dda55231',
 	  	domain : 'sandboxb5702d3785744ace96b2ecea380cf47d.mailgun.org'
 	}
 }
 const nodemailerMailgun = nodemailer.createTransport(mg(mailgun));
+*/
 const options = {
     client_id: '2s83KacM3j_UnVuUueLDwYqrR9eyKRYGk',
     client_secret: 'UnVx412aBLnmuRCfTHKxKn'
@@ -68,8 +69,7 @@ router.get('/moreextensions', function (req, res) {
 });
 
 router.post('/send/email', function (req, res) {
-	console.log(JSON.stringify(req.body));
-	var fromName = "";
+	/*var fromName = "";
 	if (req.body.from)
 		fromName = req.body.from;
 	else
@@ -80,7 +80,7 @@ router.post('/send/email', function (req, res) {
 	var message = req.body.message;
 	nodemailerMailgun.sendMail({
         from: fromName + '<'+ fromEmail + '>',
-        to: 'contact.lexevo@gmail.com', // An array if you have multiple recipients.
+        to: '', // An array if you have multiple recipients.
             //cc:'',
             //bcc:'',
             subject: 'Mail from Domain-Author user',
@@ -96,7 +96,7 @@ router.post('/send/email', function (req, res) {
             } else {
             	res.status(200).json('mail sent successfully');
             }
-          });
+          });*/
 });
 
 // compare function

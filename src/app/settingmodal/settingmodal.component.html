@@ -1,39 +1,43 @@
-<div class="header">
-    <button class="close-btn" (click)="Cancel()" [md-dialog-close]="true">&times;</button>
-    <h1 md-dialog-title>Settings</h1>
-</div>
-
-<md-dialog-content>
-  <br>
-  <span>Choose a domain registrar:</span>
-    <md-select [(ngModel)]="selectedValue" name="services">
-        <md-option *ngFor="let service of services" [value]="service">
-            {{service}}
-        </md-option>
-    </md-select>
-    <section class="exts-check-section">
-        <md-checkbox style="padding-right:1px" *ngFor="let ext of exts" [(ngModel)]="ext.value">{{ext.name}}</md-checkbox>
-    </section>
-    <br>
-    <section style="padding-left:20px">
-        <md-checkbox [(ngModel)]="extensions">Smart Extensions (e.g. .shop and .store for a shop)</md-checkbox>
-    </section>
-    <div class="add-more">
-        <a (click)="addmore()" style="margin-bottom: 20px; cursor: pointer;">ADD MORE EXTENSIONS<i *ngIf="!addmore_show" class="chevron-arrow fa fa-chevron-right" aria-hidden="true"></i><i *ngIf="addmore_show" class="chevron-arrow fa fa-chevron-down" aria-hidden="true"></i></a>
-        <span *ngIf="addmore_show">
-            <angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems" 
-            [settings]="dropdownSettings"
-            (onSelect)="onItemSelect($event)" 
-            (onDeSelect)="onItemDeSelect($event)"
-            (onSelectAll)="onSelectAll($event)"
-            (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
-        </span>
-    </div>
-    <hr>
-    <section class="hypens">
-        <md-checkbox [(ngModel)]="hypens">Allow hyphens (-), e.g. domain-author.com</md-checkbox>
-    </section>
-</md-dialog-content>
-<div class="btn-section">
-    <button class="btn btn-warning apply-btn" [md-dialog-close]="true" (click)="ApplySuccess()">Apply</button>
+<div class="autoHeight">
+    <md-dialog-content>
+        <div class="header">
+            <button class="close-btn" (click)="Cancel()" [md-dialog-close]="true" id="modalSettingsClose">&times;</button>
+            <h1 md-dialog-title>Settings</h1>
+        </div>
+        <br>
+        <span>Choose a Domain Registrar:</span>
+        <md-select [(ngModel)]="selectedValue" name="services">
+            <md-option *ngFor="let service of services" [value]="service">
+                {{service}}
+            </md-option>
+        </md-select>
+        <span class="extension-selector">Choose your Extension(s):</span>
+        <section class="exts-check-section">
+            <p style="color:#d9534f; margin-bottom: -20px;" *ngIf="!hideEmptyExtensionsError">Select at least one extension</p>
+            <md-checkbox style="padding-right:1px" *ngFor="let ext of exts" [(ngModel)]="ext.value">{{ext.name}}</md-checkbox>
+        </section>
+        <br>
+        <section style="padding-left:20px">
+            <md-checkbox [(ngModel)]="extensions">DomainAuthor’s Smart Extensions</md-checkbox>
+        </section>
+        <div class="add-more">
+            <a (click)="addmore()" style="margin-bottom: 20px; cursor: pointer;">ADD MORE EXTENSIONS<i *ngIf="!addmore_show" class="chevron-arrow fa fa-chevron-right" aria-hidden="true"></i><i *ngIf="addmore_show" class="chevron-arrow fa fa-chevron-down" aria-hidden="true"></i></a>
+            <span *ngIf="addmore_show" id="addMoreExtensions">
+                <angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems" 
+                [settings]="dropdownSettings"
+                (onSelect)="onItemSelect($event)"
+                (onDeSelect)="onItemDeSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+            </span><br>
+            <p *ngIf="showMaxLimitError" style="color:#d9534f; margin-top:-15px;">Maximum 5 extensions</p>
+        </div>
+        <hr>
+        <section class="hypens">
+            <md-checkbox [(ngModel)]="hypens">Allow hyphens (-), e.g. domain-author.com</md-checkbox>
+        </section>
+        <div class="btn-section">
+            <button class="btn btn-warning apply-btn" (click)="ApplySuccess()" id="test">Apply</button>
+        </div>
+    </md-dialog-content>
 </div>

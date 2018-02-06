@@ -327,7 +327,9 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
+#cdk-overlay-1 {
+    pointer-events: unset !important;
+}
 #cdk-overlay-1 .mat-select-panel {
     margin-top: 60px;
     min-width: 100%!important;
@@ -348,4 +350,28 @@
 #cdk-overlay-3 .mat-select-panel .mat-option {
     font-size: 14px!important;
     font-family: OpenSansBold;
+}
+
+@media (max-width:767px) {
+    .overay-pan-background {
+        margin-top: -250px !important;
+    }
+}
+
+@media (max-width:425px) {
+    .overay-pan-background {
+        margin-top: -250px !important;
+    }
+}
+
+@media (max-width:420px) {
+    .overay-pan-background {
+        margin-top: -250px !important;
+    }
+}
+
+@media (max-width:992px) {
+    .overay-pan-background {
+        margin-top: -250px !important;
+    }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class DataService {
-  services = ["GoDaddy (recommended)","Bluehost","Namecheap"];
+  services = ["GoDaddy","Namecheap"];
   prefix = ["My","The","Mr","Ilove","Smart","Easy"];
   suffix = ["Head","Hero","King","Queen","Digital","Facts","Paradise"];
   exts = [
@@ -14,7 +14,7 @@ export class DataService {
     {name:".co.uk",value:false}
   ];
   hypens = false;
-  selectedValue: string = "GoDaddy (recommended)";
+  selectedValue: string = "GoDaddy";
   keyword = "";
   domainKeyword = "";
   constructor() {

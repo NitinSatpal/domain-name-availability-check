@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { WebsiteService } from '../website.service';
 import { Observable } from 'rxjs/Observable';
+declare var $:any;
 @Component({
   selector: 'app-settingmodal',
   templateUrl: './settingmodal.component.html',
@@ -10,13 +11,13 @@ import { Observable } from 'rxjs/Observable';
 })
 export class SettingmodalComponent implements OnInit {
 
-  constructor(public data:DataService, public _websiteService:WebsiteService) { }
+  constructor(public data:DataService, public _websiteService:WebsiteService) {}
   prevHypens = false;
   hypens = false;
   newExt :string = "";
   newExtError = false;
   addmore_show = false;
-  selectedValue: string = "GoDaddy (recommended)";
+  selectedValue: string = "GoDaddy";
   services = [];
   exts = [];
   prevExts = [];
@@ -28,6 +29,8 @@ export class SettingmodalComponent implements OnInit {
   selectedItems = [];
   prevSelectedItems = [];
   dropdownSettings = {};
+  hideEmptyExtensionsError = true;
+  showMaxLimitError = false;
 
   ngOnInit() {
     let temp = this.data.exts.map(x => Object.assign({}, x));
@@ -75,35 +78,60 @@ export class SettingmodalComponent implements OnInit {
         );
 
     this.dropdownSettings = { 
-                              singleSelection: false, 
-                              text:"Select extensions (maximum 5)",
-                              selectAllText:'Select All',
-                              unSelectAllText:'UnSelect All',
-                              enableSearchFilter: true,
-                              enableCheckAll:false,
-                              limitSelection:5
-                            };            
+      singleSelection: false, 
+      text:"Select extensions (maximum 5)",
+      selectAllText:'Select All',
+      unSelectAllText:'UnSelect All',
+      enableSearchFilter: true,
+      enableCheckAll:false,
+      limitSelection:6
+    };            
   }
 
   addmore(){
     this.addmore_show = !this.addmore_show;
+    if (this.addmore_show) {
+      if ($( window ).width() > 1000)
+        $('.btn-section').addClass('dynamicPaddingToBtn');
+      else
+        $('.btn-section').addClass('dynamicMobilePaddingToBtn');
+    } else {
+      if ($( window ).width() > 1000)
+        $('.btn-section').removeClass('dynamicPaddingToBtn');
+      else
+        $('.btn-section').removeClass('dynamicMobilePaddingToBtn');
+    }
   }
 
   onItemDeSelect(item:any){
+    this.showMaxLimitError = false;
   }
-  onItemSelect(item:any){
+  onItemSelect(item:any) {   
+    if (this.selectedItems.length == 6) {
+      this.selectedItems.splice(5, 1);
+      this.showMaxLimitError = true;
+    }
+    
   }
   onSelectAll(items: any){
   }
   onDeSelectAll(items: any){
   }
-
   Cancel(){
     let temp = this.data.exts.map(x => Object.assign({}, x));
     this.exts = temp;
   }
-  ApplySuccess(){
-    let temp = this.exts.map(x => Object.assign({}, x));    
+  ApplySuccess() {
+    let temp = this.exts.map(x => Object.assign({}, x));
+    this.hideEmptyExtensionsError = false;
+    for (var index = 0; index < temp.length; index++) {
+      if (temp[index].value) {
+        this.hideEmptyExtensionsError = true;
+        break;
+      }
+    }
+    if (!this.hideEmptyExtensionsError)
+      return;
     localStorage.setItem('extensions', JSON.stringify(temp));
     localStorage.setItem('moreExtensions', JSON.stringify(this.selectedItems));
     localStorage.setItem('hypens', JSON.stringify(this.hypens));
@@ -116,6 +144,8 @@ export class SettingmodalComponent implements OnInit {
         this.search();
       }
     }
+    var el = document.getElementById('modalSettingsClose');
+    $(el).click();
   }
   checkError(){
     if (this.newExtError == true){

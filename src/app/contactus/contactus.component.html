@@ -28,11 +28,18 @@
 				</div>
 				<div class="col-md-8">
 					<div class="form-group" show-errors>
-						<button class="btn btn-primary sendButton">Send</button>
+						<button class="btn btn-primary sendButton" style="float: left;">Send</button>
+						<span class="input-group-btn spinner" [ngClass]="{hideSpinner: hideSpinner, showSpinner: showSpinner}" style="float: left; margin-top: -7px ">
+			            	<img src="./assets/images/Spinner.gif" alt="" style="height:50px;">
+			        	</span>
+			        	<br>
+			        	<br>
+			        	<span *ngIf="errorInMailSending" style="margin-left: -66.5px; color:#d9534f">Something went wrong. Please try again.</span>
+						<span *ngIf="successInMailSending" style="margin-left: -66.5px; color:#449d44">Thank you! We have received your message.</span>
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
-	<p>You can also reach us on Facebook: <a href="https://www.facebook.com/DomainAuthor/" target="_blank">https://www.facebook.com/DomainAuthor/</a></p>
+	<p>You can also reach us on Facebook: <a href="https://www.facebook.com/DomainAuthor/" target="_blank" style="text-decoration: underline !important;">https://www.facebook.com/DomainAuthor/</a></p>
 </div>

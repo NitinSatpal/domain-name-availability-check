@@ -10,10 +10,15 @@ export class ContactusComponent implements OnInit {
   mailOFTheSubmitter = "";
   msgBySubmitter = "";
   constructor(private _websiteService:WebsiteService) { }
-
+  hideSpinner = true;
+  showSpinner = false;
+  errorInMailSending = false;
+  successInMailSending = false;
   ngOnInit() {
   }
   onSubmit() {
+    this.hideSpinner = false;
+    this.showSpinner = true;
     let emailData = {
       from: this.nameOFTheSubmitter,
       fromEmail: this.mailOFTheSubmitter,
@@ -21,10 +26,19 @@ export class ContactusComponent implements OnInit {
     }
     this._websiteService.sendEmailToAdmin(emailData)
         .subscribe(
-          resWebsiteData => {       
-            console.log(resWebsiteData);
+          resWebsiteData => { 
+            this.hideSpinner = true;
+            this.showSpinner = false;
+            this.nameOFTheSubmitter = "";
+            this.mailOFTheSubmitter = "";
+            this.msgBySubmitter= "";
+            this.successInMailSending = true;
           },
-          error => console.log(error),
+          error => {
+            this.hideSpinner = true;
+            this.showSpinner = false;
+            this.errorInMailSending = true;
+          }
         );
   }
 

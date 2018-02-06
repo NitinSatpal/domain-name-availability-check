@@ -9,7 +9,7 @@ import { WebsiteService } from '../website.service';
 export class MoreresultComponent implements OnInit {
   constructor(public data:DataService, public websiteData: WebsiteService) { }
   currentIndex = -1;
-  keywords = ["website","business","shops","software","app","eBook", "affiliate","community","training", "news","marketplace","video"];
+  keywords = ["website","business","shop","software","app","eBook", "affiliate","community","training", "news","marketplace","video"];
   fetchIndex = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   moreResultsOver = false;
   domainResult = [];
@@ -267,15 +267,12 @@ export class MoreresultComponent implements OnInit {
 
   redirecToProvider(event, domain) {
     event.preventDefault();
-    event.stopPropagation();   
-    if (this.websiteData.paramDomainProvider == 'GoDaddy (recommended)') {
-      alert('please try namecheap for now :)');
-      return false;
-    } else if (JSON.parse(this.websiteData.paramDomainProvider) == 'Namecheap') {
+    event.stopPropagation();
+    if (JSON.parse(this.websiteData.paramDomainProvider) == "Namecheap") {
       window.open("https://www.namecheap.com/domains/registration/results.aspx?domain=" + domain + "&affId=63790", "_blank");
       return false;
     } else {
-      alert('please try namecheap for now :)');
+      window.open("http://www.anrdoezrs.net/click-8506751-11774111?sid=12345&url=https://www.godaddy.com/domains/searchresults.aspx?domainToCheck=" + domain + "&checkAvail=1", "_blank");
       return false;
     }
   }

@@ -48,15 +48,11 @@ export class SearchresultComponent implements OnInit {
   redirecToProvider(event, domain) {
     event.preventDefault();
     event.stopPropagation();
-    console.log(this.websiteData.paramDomainProvider); 
-    if (this.websiteData.paramDomainProvider == 'GoDaddy (recommended)') {
-      alert('please try namecheap for now :)');
-      return false;
-    } else if (JSON.parse(this.websiteData.paramDomainProvider) == 'Namecheap') {
+    if (JSON.parse(this.websiteData.paramDomainProvider) == "Namecheap") {
       window.open("https://www.namecheap.com/domains/registration/results.aspx?domain=" + domain + "&affId=63790", "_blank");
       return false;
     } else {
-      alert('please try namecheap for now :)');
+      window.open("http://www.anrdoezrs.net/click-8506751-11774111?sid=12345&url=https://www.godaddy.com/domains/searchresults.aspx?domainToCheck=" + domain + "&checkAvail=1", "_blank");
       return false;
     }
   }
